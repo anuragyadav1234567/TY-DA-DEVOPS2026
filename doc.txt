@@ -3,6 +3,7 @@ ADT23SOCB1560 - Shravan Devendra Mehta
 ADT24SOCBD213 - Rohan Divekar
 ADT23SOCB1619 - DJ-Lucii
 ADT23SOCB1546 - Prince Bankar
+ADT23SOCB1555 - Sankalp Tripathi
 abcd
 aaaaaaaaaaaaaaaaaaa
 bbbbbbbbbbbbbbbbbbbbbbb
@@ -19,8 +20,8 @@ rrrrrrrrrrrrrrrrrrr
 
 Rohit kalal 
 Ojas Umate
+Sankalp Tripathi
 
 
-
- Ojas i made a change
+ Ojas made no changes
 
