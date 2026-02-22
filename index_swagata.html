@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Simple Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;   /* vertical center */
+            align-items: center;       /* horizontal center */
+
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1 id="title">Welcome to My Website</h1>
+</header>
+
+<main>
+    <p id="message">Swagata was here.</p>
+</main>
+
+<script>
+    // Simple JS example
+    document.getElementById("title").style.color = "purple";
+
+    document.getElementById("message").addEventListener("click", function () {
+        alert("You clicked the text!");
+    });
+</script>
+
+</body>
+</html>
