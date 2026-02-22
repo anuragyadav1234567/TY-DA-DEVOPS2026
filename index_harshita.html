@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harshitha Loshetty | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:linear-gradient(-45deg,#14001f,#1f0033,#2b0057,#14001f);
+    background-size:400% 400%;
+    animation:bgMove 10s ease infinite;
+    color:white;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+header{
+    text-align:center;
+    padding:60px 20px;
+}
+
+header h1{
+    font-size:3rem;
+    letter-spacing:2px;
+    background:linear-gradient(to right,#c084fc,#a855f7);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+header p{
+    margin-top:10px;
+    opacity:0.8;
+}
+
+section{
+    padding:60px 10%;
+}
+
+h2{
+    margin-bottom:30px;
+    font-size:2rem;
+    color:#c084fc;
+}
+
+/* Glass Card */
+.card{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:15px;
+    padding:30px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 30px rgba(168,85,247,0.4);
+}
+
+/* Skills */
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.skill{
+    padding:15px 25px;
+    border-radius:30px;
+    background:rgba(168,85,247,0.2);
+    transition:0.3s;
+}
+
+.skill:hover{
+    background:#a855f7;
+    cursor:pointer;
+}
+
+/* Projects */
+.project{
+    margin-bottom:20px;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:30px;
+    opacity:0.6;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Harshitha Loshetty</h1>
+    <p>Web Developer | frontend </p>
+</header>
+
+<section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+        <p>
+            I'm a passionate web developer intern who loves building modern,
+            responsive, and interactive web experiences with creative UI design.
+        </p>
+    </div>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">GitHub</div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="card project">
+        <h3>Weather Wise App</h3>
+        <p>A real-time weather web application with clean UI and live data integration.</p>
+    </div>
+
+    <div class="card project">
+        <h3>Coffee Shop Website</h3>
+        <p>A responsive website with product showcase and ordering system design.</p>
+    </div>
+</section>
+
+<footer>
+    © 2026 Harshitha Loshetty
+</footer>
+
+</body>
+</html>
