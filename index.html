@@ -1,293 +1,240 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Red Phantom Hacker Club</title>
+{% extends "layout.html" %}
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+{% block title %}Home - Urban Farming Platform{% endblock %}
 
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        body {
-            background: black;
-            color: #ff1a1a;
-            overflow-x: hidden;
-        }
-
-        /* NAVBAR */
-        .navbar {
-            background: #0d0d0d;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid red;
-            box-shadow: 0 0 20px red;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            text-shadow: 0 0 20px red;
-        }
-
-        .navLinks a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: #ff4d4d;
-            transition: 0.3s;
-        }
-
-        .navLinks a:hover {
-            color: white;
-            text-shadow: 0 0 10px red;
-        }
-
-        button {
-            padding: 8px 15px;
-            background: red;
-            border: none;
-            color: black;
-            font-weight: bold;
-            cursor: pointer;
-            margin-left: 20px;
-        }
-
-        button:hover {
-            background: white;
-        }
-
-        /* HERO */
-        .hero {
-            text-align: center;
-            padding: 120px 20px;
-            background: radial-gradient(circle at center, #1a0000, black);
-        }
-
-        .hero h1 {
-            font-size: 45px;
-            margin-bottom: 20px;
-            animation: glitch 1s infinite alternate;
-        }
-
-        .hero p {
-            color: #ff6666;
-            font-size: 18px;
-        }
-
-        @keyframes glitch {
-            from { text-shadow: 3px 3px red; }
-            to { text-shadow: -3px -3px crimson; }
-        }
-
-        section {
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        h1 {
-            margin-bottom: 30px;
-        }
-
-        /* MISSION */
-        .mission ul {
-            list-style: none;
-        }
-
-        .mission li {
-            margin: 15px 0;
-            color: #ff4d4d;
-        }
-
-        /* TEAM */
-        .teamContainer {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .member {
-            border: 1px solid red;
-            padding: 30px;
-            width: 200px;
-            transition: 0.4s;
-            box-shadow: 0 0 15px #550000;
-        }
-
-        .member:hover {
-            background: #1a0000;
-            transform: scale(1.07);
-            box-shadow: 0 0 25px red;
-        }
-
-        .member a {
-            display: block;
-            margin-top: 10px;
-            text-decoration: none;
-            color: white;
-        }
-
-        /* CONTACT */
-        .contact input,
-        .contact textarea {
-            width: 300px;
-            margin: 10px;
-            padding: 10px;
-            background: black;
-            border: 1px solid red;
-            color: red;
-        }
-
-        .contact input[type="submit"] {
-            background: red;
-            color: black;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        footer {
-            padding: 20px;
-            border-top: 2px solid red;
-            text-align: center;
-            background: #0d0d0d;
-        }
-
-    </style>
-</head>
-
-<body>
-
-    <nav class="navbar">
-        <div class="logo">RED PHANTOM | Hacker Club</div>
-        <div class="navLinks">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#mission">Mission</a>
-            <a href="#team">Team</a>
-            <a href="#contact">Contact</a>
-            <button onclick="logout()" id="logoutBtn">Logout</button>
-        </div>
-    </nav>
-
-    <section class="hero" id="home">
-        <h1>WELCOME TO THE MATRIX</h1>
-        <p>Cyber Security | Ethical Hacking | CTF Warriors</p>
-    </section>
-
-    <section id="about">
-        <h1>About Our Club</h1>
-        <p>
-            Red Phantom Hacker Club is a cybersecurity community focused on ethical hacking,
-            penetration testing, digital forensics, and secure application development.
-        </p>
-    </section>
-
-    <section class="mission" id="mission">
-        <h1>Our Mission</h1>
-        <ul>
-            <li>Train ethical hackers to defend digital systems</li>
-            <li>Promote cybersecurity awareness</li>
-            <li>Conduct CTF competitions & workshops</li>
-            <li>Build secure and powerful applications</li>
-        </ul>
-    </section>
-
-    <section class="team" id="team">
-        <h1>Core Hackers</h1>
-                    <a href="#home">Home</a>
-                    <a href="#about">About Us</a>
-                    <a href="prod.html">Products</a>
-                    <a href="login.html">Login</a>
-                    <a href="reg.html">Register</a>
-                    <a href="#contact">Contact Us</a>
-                    <button onclick="logout()">Logout</button>
-             </div>
-		<a href="./index_ojas.html">Ojas Portfolio</a>
-		<a href="./index_sanskriti.html">Sanskriti Portfolio</a>
-        <a href="./index_swagata.html">Sanskriti Portfolio</a>
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section bg-success bg-gradient text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">Grow Smart in Urban Spaces</h1>
+                <p class="lead mb-4">Transform your rooftop, terrace, or balcony into a productive farm with our AI-powered platform.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    {% if not current_user.is_authenticated %}
+                    <a href="{{ url_for('auth.register') }}" class="btn btn-light btn-lg px-4">
+                        <i class="fas fa-user-plus me-2"></i>Get Started Free
+                    </a>
+                    {% else %}
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-light btn-lg px-4">
+                        <i class="fas fa-tachometer-alt me-2"></i>Go to Dashboard
+                    </a>
+                    {% endif %}
+                    <a href="#features" class="btn btn-outline-light btn-lg px-4">
+                        <i class="fas fa-play-circle me-2"></i>Watch Demo
+                    </a>
+                </div>
             </div>
-        </nav>
-    </header>
-
-    <main>
-
-        <section class="secA" id="about">
-
-            <div class="abtLhs">
-
-                <h1>Welcome To PharmEasy</h1>
-                <h1>PRATHMESH WAGHMARE</h1>
-                <h1>ADT23SOCB1545 </h1>
-                <p>Your one stop solution for all pharmaceutical products since 2001</p>
-        <div class="teamContainer">
-            <div class="member">
-                <h2>Ojas</h2>
-                <a href="index_ojas.html">View Portfolio</a>
-            </div>
-
-            <div class="member">
-                <h2>Manthan</h2>
-                <a href="index_manthan.html">View Portfolio</a>
-            </div>
-
-            <div class="member">
-                <h2>Rohan</h2>
-                <a href="index_r=Rohan.html">View Portfolio</a>
-            </div>
-
-            <div class="member">
-                <h2>Sanskriti</h2>
-                <a href="index_sanskriti.html">View Portfolio</a>
-            </div>
-
-            <div class="member">
-                <h2>Shravan</h2>
-                <a href="index_Shravan.html">View Portfolio</a>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/hero-image.png') }}" alt="Urban Farming" class="img-fluid rounded shadow">
             </div>
         </div>
-	<br>
-	<div class="teamContainer"> 
-		<div class="member">
-                	<h2>Suraj</h2>
-                	<a href="suraj_index.html">View Portfolio</a>
-            	</div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="section-title">Smart Farming Features</h2>
+                <p class="text-muted">Everything you need for successful urban farming</p>
+            </div>
         </div>
-    </section>
+        
+        <div class="row g-4">
+            <!-- Feature 1 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card feature-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon bg-success bg-gradient text-white rounded-circle mx-auto mb-4">
+                            <i class="fas fa-robot fa-2x"></i>
+                        </div>
+                        <h4 class="card-title">AI Crop Recommendation</h4>
+                        <p class="card-text text-muted">Get personalized crop suggestions based on your location, season, and available space.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card feature-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon bg-info bg-gradient text-white rounded-circle mx-auto mb-4">
+                            <i class="fas fa-tint fa-2x"></i>
+                        </div>
+                        <h4 class="card-title">Smart Irrigation</h4>
+                        <p class="card-text text-muted">Optimize water usage with AI-powered irrigation schedules based on weather forecasts.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card feature-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon bg-warning bg-gradient text-white rounded-circle mx-auto mb-4">
+                            <i class="fas fa-heartbeat fa-2x"></i>
+                        </div>
+                        <h4 class="card-title">Plant Health Monitor</h4>
+                        <p class="card-text text-muted">Upload plant images to detect diseases and get treatment recommendations.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card feature-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mx-auto mb-4">
+                            <i class="fas fa-chart-line fa-2x"></i>
+                        </div>
+                        <h4 class="card-title">Market Insights</h4>
+                        <p class="card-text text-muted">Get real-time market prices and insights for better selling decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section class="contact" id="contact">
-        <h1>Send Encrypted Message</h1>
-        <input type="email" placeholder="Enter Email">
-        <br>
-        <textarea rows="4" placeholder="Type your secure message"></textarea>
-        <br>
-        <input type="submit" value="Transmit">
-    </section>
+<!-- How It Works -->
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="section-title">How It Works</h2>
+                <p class="text-muted">Four simple steps to start smart farming</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="step-card text-center">
+                    <div class="step-number">1</div>
+                    <h4>Register & Setup</h4>
+                    <p>Create your account and set up your farm profile with location and space details.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="step-card text-center">
+                    <div class="step-number">2</div>
+                    <h4>Get AI Recommendations</h4>
+                    <p>Receive personalized crop suggestions based on your specific conditions.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="step-card text-center">
+                    <div class="step-number">3</div>
+                    <h4>Monitor & Manage</h4>
+                    <p>Track your crops, get irrigation schedules, and monitor plant health.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="step-card text-center">
+                    <div class="step-number">4</div>
+                    <h4>Sell Smart</h4>
+                    <p>Use market insights to sell at the right time for maximum profit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <footer>
-        <p>© 2026 Red Phantom Hacker Club | Access Level: Root</p>
-    </footer>
+<!-- Stats Section -->
+<section class="py-5 bg-success text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4">
+                <h2 class="display-4 fw-bold">500+</h2>
+                <p class="mb-0">Urban Farmers</p>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <h2 class="display-4 fw-bold">50+</h2>
+                <p class="mb-0">Crop Varieties</p>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <h2 class="display-4 fw-bold">30%</h2>
+                <p class="mb-0">Water Savings</p>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <h2 class="display-4 fw-bold">₹2L+</h2>
+                <p class="mb-0">Avg Annual Income</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <script>
-        const loggedInUser = sessionStorage.getItem('loggedInUser');
-        if (!loggedInUser) {
-            document.getElementById('logoutBtn').style.display = 'none';
-        }
+<!-- CTA Section -->
+<section class="py-5">
+    <div class="container text-center">
+        <h2 class="mb-4">Ready to Start Your Urban Farming Journey?</h2>
+        <p class="lead mb-4">Join thousands of urban farmers growing smarter with our platform.</p>
+        {% if not current_user.is_authenticated %}
+        <a href="{{ url_for('auth.register') }}" class="btn btn-success btn-lg px-5">
+            <i class="fas fa-seedling me-2"></i>Start Free Today
+        </a>
+        {% else %}
+        <a href="{{ url_for('dashboard') }}" class="btn btn-success btn-lg px-5">
+            <i class="fas fa-tachometer-alt me-2"></i>Go to Dashboard
+        </a>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
 
-        function logout() {
-            sessionStorage.removeItem('loggedInUser');
-            alert("Session Terminated.");
-            window.location.href = "login.html";
-        }
-    </script>
-
-</body>
-</html>
+{% block extra_css %}
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #198754 0%, #25a56a 100%);
+    }
+    
+    .feature-icon {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+    }
+    
+    .step-card {
+        padding: 20px;
+    }
+    
+    .step-number {
+        width: 50px;
+        height: 50px;
+        background: #198754;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0 auto 20px;
+    }
+    
+    .section-title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+    
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: #198754;
+    }
+</style>
+{% endblock %}
