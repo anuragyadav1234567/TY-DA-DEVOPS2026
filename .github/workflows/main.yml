@@ -1,11 +1,20 @@
-name: DevOps CI Pipeline
+name: DevOps CI/CD Pipeline
 on: [push]
 
 jobs:
-  build:
+  Testing:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-      - name: Run Docker Build
-        run: echo "GitHub Actions is now active!"
+      - run: echo "Running Unit Tests..."
+
+  Building:
+    needs: Testing
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Building Docker Image..."
+
+  Deployment:
+    needs: Building
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to Jenkins..."
