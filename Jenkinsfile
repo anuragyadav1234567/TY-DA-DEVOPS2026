@@ -8,20 +8,20 @@ pipeline {
         }
         stage('Build project') {
             steps {
-                echo 'Building the project...'
-                sh 'ls -ltr'
+                echo 'Building...'
+                bat 'dir'  // Use 'bat' and 'dir' for Windows
             }
         }
         stage('Test application') {
             steps {
-                echo 'Testing the application...'
-                sh 'echo "Tests Passed!"'
+                echo 'Testing...'
+                bat 'echo "Tests Passed!"'
             }
         }
         stage('Deploy application') {
             steps {
-                echo 'Deploying the application...'
-                sh 'echo "Deployed successfully!"'
+                echo 'Deploying...'
+                bat 'echo "Deployed successfully!"'
             }
         }
     }
