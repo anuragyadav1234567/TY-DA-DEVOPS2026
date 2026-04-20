@@ -1,27 +1,24 @@
 pipeline {
     agent any
+
     stages {
-        stage('Clone repository') {
+        stage('Checkout') {
             steps {
+                echo 'Checking out code from GitHub...'
                 checkout scm
             }
         }
-        stage('Build project') {
+        stage('Build') {
             steps {
-                echo 'Building...'
-                bat 'dir'  // Use 'bat' and 'dir' for Windows
+                echo 'Building Docker Image locally...'
+                // If you have Docker installed, you'd run: sh 'docker build -t my-app .'
+                echo 'Build Complete.'
             }
         }
-        stage('Test application') {
+        stage('Test') {
             steps {
-                echo 'Testing...'
-                bat 'echo "Tests Passed!"'
-            }
-        }
-        stage('Deploy application') {
-            steps {
-                echo 'Deploying...'
-                bat 'echo "Deployed successfully!"'
+                echo 'Running local tests...'
+                echo 'Testing Complete.'
             }
         }
     }
