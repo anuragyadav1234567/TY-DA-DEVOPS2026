@@ -4,21 +4,19 @@ pipeline {
     stages {
         stage('Code Analysis') {
             steps {
-                echo 'Checking for HTML errors in anuragindex2.html...'
-                sh 'ls -l' 
+                echo 'Checking for HTML errors...'
+                bat 'dir' // 'dir' is the Windows version of 'ls'
             }
         }
         stage('Build Image') {
             steps {
-                echo 'Packaging application into Docker container...'
-                // This simulates the build process
-                sh 'echo "Docker build successful"'
+                echo 'Packaging application...'
+                bat 'echo Docker build successful'
             }
         }
         stage('Security Scan') {
             steps {
                 echo 'Scanning for vulnerabilities...'
-                sleep 2
             }
         }
         stage('Local Deploy') {
@@ -30,7 +28,10 @@ pipeline {
     
     post {
         success {
-            echo 'Pipeline Finished Successfully! Well done Anurag.'
+            echo 'Pipeline Finished Successfully!'
+        }
+        failure {
+            echo 'Pipeline Failed. Check the logs!'
         }
     }
 }
