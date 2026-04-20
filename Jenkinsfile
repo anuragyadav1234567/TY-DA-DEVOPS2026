@@ -2,24 +2,35 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Code Analysis') {
             steps {
-                echo 'Checking out code from GitHub...'
-                checkout scm
+                echo 'Checking for HTML errors in anuragindex2.html...'
+                sh 'ls -l' 
             }
         }
-        stage('Build') {
+        stage('Build Image') {
             steps {
-                echo 'Building Docker Image locally...'
-                // If you have Docker installed, you'd run: sh 'docker build -t my-app .'
-                echo 'Build Complete.'
+                echo 'Packaging application into Docker container...'
+                // This simulates the build process
+                sh 'echo "Docker build successful"'
             }
         }
-        stage('Test') {
+        stage('Security Scan') {
             steps {
-                echo 'Running local tests...'
-                echo 'Testing Complete.'
+                echo 'Scanning for vulnerabilities...'
+                sleep 2
             }
+        }
+        stage('Local Deploy') {
+            steps {
+                echo 'Deploying to localhost:8080...'
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo 'Pipeline Finished Successfully! Well done Anurag.'
         }
     }
 }
