@@ -4,34 +4,36 @@ pipeline {
     stages {
         stage('Code Analysis') {
             steps {
-                echo 'Checking for HTML errors...'
-                bat 'dir' // 'dir' is the Windows version of 'ls'
+                echo 'Checking for HTML errors in anuragindex2.html...'
+                bat 'dir' 
             }
         }
-        stage('Build Image') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Packaging application...'
-                bat 'echo Docker build successful'
+                echo 'Building the Docker Image...'
+                // This creates a new image named "anurag-app" using your Dockerfile
+                bat 'docker build -t anurag-app:latest .'
             }
         }
-        stage('Security Scan') {
+        stage('Remove Old Container') {
             steps {
-                echo 'Scanning for vulnerabilities...'
+                echo 'Stopping old container if it exists...'
+                // This stops and removes the old container so we can start a fresh one
+                bat 'docker rm -f anurag-container || exit 0'
             }
         }
-        stage('Local Deploy') {
+        stage('Deploy to Port 5000') {
             steps {
-                echo 'Deploying to localhost:8080...'
+                echo 'Starting the new container on http://localhost:5000...'
+                // This runs your container and maps port 5000
+                bat 'docker run -d --name anurag-container -p 5000:5000 anurag-app:latest'
             }
         }
     }
     
     post {
         success {
-            echo 'Pipeline Finished Successfully!'
-        }
-        failure {
-            echo 'Pipeline Failed. Check the logs!'
+            echo 'Pipeline Finished! Your app is live at http://localhost:5000'
         }
     }
 }
