@@ -11,31 +11,32 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'Building the Docker Image using full path...'
-                // Pointing Jenkins directly to the Docker executable
+                // This will now find the Dockerfile you just added
                 bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t anurag-app:latest .'
             }
         }
         stage('Remove Old Container') {
             steps {
                 echo 'Cleaning up old containers...'
-                // Using full path to remove any old container named anurag-container
+                // Removes the container if it exists, exits safely if it doesn't
                 bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" rm -f anurag-container || exit 0'
             }
         }
         stage('Deploy to Port 5000') {
             steps {
                 echo 'Starting the container on port 5000...'
-                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" run -d --name anurag-container -p 5000:5000 anurag-app:latest'
+                // We map 5000 (local) to 80 (inside Nginx container)
+                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" run -d --name anurag-container -p 5000:80 anurag-app:latest'
             }
         }
     }
     
     post {
         success {
-            echo 'SUCCESS! Visit http://localhost:5000 to see your app.'
+            echo 'SUCCESS! Your Nginx server is live at http://localhost:5000'
         }
         failure {
-            echo 'Build Failed. Verify the Docker path in the Jenkinsfile matches your computer.'
+            echo 'Build Failed. Check the Console Output for Docker errors.'
         }
     }
 }
