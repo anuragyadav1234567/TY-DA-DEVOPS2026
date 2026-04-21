@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew & Bean | Artisan Coffee</title>
+    <style>
+        :root { --primary: #6F4E37; --dark: #3B2712; --light: #F5F5DC; }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--light); text-align: center; }
+        nav { background: var(--dark); padding: 1rem; color: white; font-size: 1.5rem; font-weight: bold; }
+        .hero { background: var(--primary); color: white; padding: 80px 20px; }
+        .btn { background: var(--light); color: var(--dark); padding: 15px 30px; border: none; border-radius: 25px; cursor: pointer; font-weight: bold; margin-top: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .btn:hover { background: white; transform: scale(1.05); transition: 0.3s; }
+    </style>
+</head>
+<body>
+    <nav>☕ BREW & BEAN</nav>
+    <div class="hero">
+        <h1 id="main-title">Artisan Coffee House</h1>
+        <p>Freshly roasted beans delivered right to your browser.</p>
+        <button class="btn" onclick="makeCoffee()">Order Your Coffee</button>
+    </div>
+    <script>
+        function makeCoffee() {
+            alert("Order received! Your artisan coffee is being prepared... ☕");
+            document.getElementById('main-title').innerText = "Brewing Success!";
+        }
+    </script>
+</body>
+</html>
