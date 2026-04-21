@@ -4,23 +4,23 @@ pipeline {
     stages {
         stage('Environment Check') {
             steps {
-                echo 'Locating anuragindex2.html...'
-                bat 'dir anuragindex2.html'
+                echo 'Locating Coffee House files...'
+                // Changed from anuragindex2.html to the new folder
+                bat 'dir coffee-house'
             }
         }
         stage('Build Image') {
             steps {
-                echo 'Building Docker image with your custom page...'
-                // Using the full path to docker.exe
+                echo 'Building Docker image for Coffee House...'
                 bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t anurag-app:latest .'
             }
         }
         stage('Cleanup & Deploy') {
             steps {
-                echo 'Removing old container if it exists...'
+                echo 'Removing old container...'
                 bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" rm -f anurag-container || exit 0'
                 
-                echo 'Starting new container on port 5000...'
+                echo 'Starting Coffee House on port 5000...'
                 bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" run -d --name anurag-container -p 5000:80 anurag-app:latest'
             }
         }
@@ -28,10 +28,7 @@ pipeline {
     
     post {
         success {
-            echo 'SUCCESS! Check your work at http://localhost:5000'
-        }
-        failure {
-            echo 'Build failed. Check the Console Output in Jenkins for details.'
+            echo 'SUCCESS! Brew & Bean is live at http://localhost:5000'
         }
     }
 }
