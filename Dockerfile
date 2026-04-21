@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-# Using a wildcard (*) avoids the "space in folder name" error entirely
-COPY ./project*/ /usr/share/nginx/html/
+# Take your specific file and make it the 'index.html' for the server
+COPY anuragindex2.html /usr/share/nginx/html/index.html
 
 EXPOSE 80
