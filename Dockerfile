@@ -1,8 +1,8 @@
-# Use a simple web server image
-FROM nginx:alpine
 
 # Copy your HTML files into the server's folder
-COPY . /usr/share/nginx/html
+FROM nginx:alpine
+# This grabs the files from your folder and puts them in the web root
+COPY "./project 1/" /usr/share/nginx/html/
 
 # Tell the container to use port 80 internally
 EXPOSE 80
