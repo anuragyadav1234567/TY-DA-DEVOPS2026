@@ -3,27 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brew & Bean | Artisan Coffee</title>
+    <title>Brew & Bean | Premium Coffee</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root { --primary: #6F4E37; --dark: #3B2712; --light: #F5F5DC; }
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--light); text-align: center; }
-        nav { background: var(--dark); padding: 1rem; color: white; font-size: 1.5rem; font-weight: bold; }
-        .hero { background: var(--primary); color: white; padding: 80px 20px; }
-        .btn { background: var(--light); color: var(--dark); padding: 15px 30px; border: none; border-radius: 25px; cursor: pointer; font-weight: bold; margin-top: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .btn:hover { background: white; transform: scale(1.05); transition: 0.3s; }
+        :root { --coffee: #6F4E37; --dark: #3B2712; --cream: #F5F5DC; --accent: #A67B5B; }
+        body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--cream); color: var(--dark); }
+        
+        nav { background: var(--dark); padding: 1.5rem; color: white; text-align: center; font-size: 1.8rem; font-weight: bold; letter-spacing: 2px; }
+        
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1200'); 
+                height: 50vh; background-size: cover; background-position: center; display: flex; flex-direction: column; 
+                justify-content: center; align-items: center; color: white; text-align: center; }
+
+        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        h2 { text-align: center; font-size: 2.5rem; color: var(--dark); margin-bottom: 40px; }
+
+        /* MENU GRID */
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        
+        .card { background: white; border-radius: 15px; overflow: hidden; shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.3s; text-align: center; padding-bottom: 20px; }
+        .card:hover { transform: translateY(-10px); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card h3 { margin: 15px 0 5px; }
+        .card p { color: #777; font-size: 0.9rem; padding: 0 15px; }
+        .price { font-weight: bold; color: var(--coffee); font-size: 1.2rem; display: block; margin: 10px 0; }
+        
+        .order-btn { background: var(--coffee); color: white; border: none; padding: 10px 25px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+        .order-btn:hover { background: var(--dark); }
     </style>
 </head>
 <body>
-    <nav>☕ BREW & BEAN</nav>
+
+    <nav><i class="fas fa-mug-hot"></i> BREW & BEAN</nav>
+
     <div class="hero">
-        <h1 id="main-title">Artisan Coffee House</h1>
-        <p>Freshly roasted beans delivered right to your browser.</p>
-        <button class="btn" onclick="makeCoffee()">Order Your Coffee</button>
+        <h1>Experience Perfection</h1>
+        <p>The finest beans, roasted with heart.</p>
     </div>
+
+    <div class="container">
+        <h2>Our Special Menu</h2>
+        <div class="menu-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&q=80&w=400" alt="Espresso">
+                <h3>Rich Espresso</h3>
+                <p>Pure, bold, and intense single shot for the purists.</p>
+                <span class="price">$3.50</span>
+                <button class="order-btn" onclick="order('Espresso')">Order Now</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&q=80&w=400" alt="Cappuccino">
+                <h3>Velvet Cappuccino</h3>
+                <p>Perfectly balanced espresso with creamy steamed milk foam.</p>
+                <span class="price">$4.75</span>
+                <button class="order-btn" onclick="order('Cappuccino')">Order Now</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&q=80&w=400" alt="Iced Coffee">
+                <h3>Cold Brew Nitro</h3>
+                <p>Steeped for 18 hours and served chilled for maximum smoothness.</p>
+                <span class="price">$5.25</span>
+                <button class="order-btn" onclick="order('Cold Brew')">Order Now</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        function makeCoffee() {
-            alert("Order received! Your artisan coffee is being prepared... ☕");
-            document.getElementById('main-title').innerText = "Brewing Success!";
+        function order(type) {
+            alert("Preparing your " + type + "! It will be ready at the counter in 5 minutes. ☕");
         }
     </script>
 </body>
